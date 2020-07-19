@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My Awesome Presentation</title>
+    <title>Manage Multiple Java environment</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <style type="text/css">
       @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
@@ -21,7 +21,7 @@
 
 class: center, middle
 
-# Your Workflow & the GitHub Platform
+# Jenv: Efficiently Manage multiple java versions
 
 ???
 
@@ -32,28 +32,51 @@ Notes for the _first_ slide!
 # Agenda
 
 1. Introduction
-2. Survey of tools and needs
-3. Looking for automation
+2. Installation
+3. How to use
 4. Creating an accessible and secure workflow
 
 ---
 
 # Introduction
 
-      It's possible to embed images.
-![](https://cdn.shopify.com/s/files/1/0051/4802/products/mona-1_large.jpg?v=1511308586)
+      jEnv is a command line tool to help you forget how to set the JAVA_HOME environment variable.
+      
+      Many times we are working on various projects which depends on different java versions and you need to keep switching between one and the other. But how about if you set it once
+      and many be per project directory or per shell or just local. Isin't it cool?
+      jEnv is for the same purpose.
 
 ---
 
-# Survey of tools and needs
+# Installation
+      # Linux / OS X
+      $ git clone https://github.com/jenv/jenv.git ~/.jenv
+      
+      # Mac OS X via Homebrew
+      $ brew install jenv
 
 ---
 
-# Looking for automation
+# Configure
+      $ jenv add /System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
+  oracle64-1.6.0.39 added
+      $ jenv add /Library/Java/JavaVirtualMachines/jdk17011.jdk/Contents/Home
+  oracle64-1.7.0.11 added
 
 ---
 
-# Creating an accessible and secure workflow
+# How to use
+      # List managed JDKs
+        $ jenv versions
+          system
+          oracle64-1.6.0.39
+          * oracle64-1.7.0.11 (set by /Users/Gaurav/.jenv/version)
+      # Configure global version
+        $ jenv global oracle64-1.6.0.39
+      # Configure local version (per directory)
+        $ jenv local oracle64-1.6.0.39
+      # Configure shell instance version
+        $ jenv shell oracle64-1.6.0.39
 
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js" type="text/javascript">
